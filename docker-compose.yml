@@ -1,0 +1,76 @@
+version: '3'
+services:
+  flask:
+    build: ./
+    container_name: flask_app
+    ports:
+      - "7000:5000"
+    environment:
+      DATABASE_URL: 'mysql+pymysql://flask:flask@mysql:3306/microblog_db'
+    links:
+      - mysql:mysql
+    #     - redis:redis-server
+    depends_on:    #依赖的容器
+      - mysql
+    restart: always
+  mysql:
+#    build: ./deployment/mysql
+#    image: mysql:8.0.17   版本太高，不兼容
+    image: mysql:5.7.9
+    container_name: mysql_app
+    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+    ports:
+      - "7700:3306"
+    #指定的是环境变量，即用户，密码和数据库。 如果您未指定用户，则默认情况下它将为root。
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: flask
+      MYSQL_PASSWORD: flask
+      MYSQL_DATABASE : microblog_db
+    restart: always
+#  redis:
+#    image: redis:3.2
+#    restart: always
+#  nginx:
+#    build: ./deployment/nginx
+#    ports:
+#      - "80:80"
+#    links:
+#     - flask
+
+
+
+#    db:
+#        #构建mysql镜像
+#        image: mysql
+#        container_name: mysql-db # 容器名
+#        command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+#        restart: always
+#        environment:
+#          MYSQL_ROOT_PASSWORD: root #root管理员用户密码
+#          MYSQL_USER: test   #创建test用户
+#          MYSQL_PASSWORD: test  #设置test用户的密码
+##          MYSQL_DATABSE: test_app
+#        ports:
+#          - '6606:3306'  #host物理直接映射端口为6606
+##        volumes:
+##            #mysql数据库挂载到host物理机目录/e/docker/mysql/data/db
+##          - "/e/docker/mysql/data/db:/var/lib/mysql"
+##            #容器的配置目录挂载到host物理机目录/e/docker/mysql/data/conf
+##          - "/e/docker/mysql/data/conf:/etc/mysql/conf.d"
+#    mysql:
+#      image: mysql
+#      container_name: mysql-db2 # 容器名
+#      command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci #设置utf8字符集
+##      volumes:
+##        - ./deployment/mysql/data:/var/lib/mysql
+#      restart: always
+#      ports:
+#        - "7706:3306"
+#      environment:
+#        MYSQL_ROOT_PASSWORD: "root"
+#        MYSQL_USER: "test"
+#        MYSQL_PASSWORD: "test"
+#        MYSQL_DATABASE: "test"
+##      command: mysql -uroot -proot < deployment\\mysql\\create_database.sql
+##      command: --init-file C:\\Users\\wb.zhangbai\\Desktop\\microblog-master\\deployment\\mysql\\create_database.sql

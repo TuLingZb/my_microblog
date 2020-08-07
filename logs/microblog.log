@@ -1,0 +1,42 @@
+2020-05-07 22:57:11,426 ERROR: Exception on / [GET] [in /Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zhangbai/microblog/app/routes.py", line 35, in index
+    page, app.config['POSTS_PER_PAGE'], False
+KeyError: 'POSTS_PER_PAGE'
+2020-05-07 22:57:47,089 ERROR: Exception on / [GET] [in /Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/zhangbai/microblog/flask_env/lib/python3.6/site-packages/flask_login/utils.py", line 228, in decorated_view
+    return func(*args, **kwargs)
+  File "/Users/zhangbai/microblog/app/routes.py", line 35, in index
+    page, app.config['POSTS_PER_PAGE'], False
+KeyError: 'POSTS_PER_PAGE'
+2020-05-07 22:57:55,832 INFO: Microblog startup [in /Users/zhangbai/microblog/app/__init__.py:47]
+2020-05-07 23:04:57,056 INFO: Microblog startup [in /Users/zhangbai/microblog/app/__init__.py:47]
+2020-05-07 23:07:26,546 INFO: Microblog startup [in /Users/zhangbai/microblog/app/__init__.py:47]
+2020-05-07 23:12:51,250 INFO: Microblog startup [in /Users/zhangbai/microblog/app/__init__.py:47]
